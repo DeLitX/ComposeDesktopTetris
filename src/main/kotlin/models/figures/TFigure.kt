@@ -14,16 +14,16 @@ class TFigure(
 ) : TetrisFigure(
     listOf(
         listOf(
-            RelativeCell(relativePosition = Position(0, 0), TetrisCell(_color = color, _size = cellSize)),
-            RelativeCell(relativePosition = Position(1, 0), TetrisCell(_color = color, _size = cellSize)),
-            RelativeCell(relativePosition = Position(2, 0), TetrisCell(_color = color, _size = cellSize)),
+            RelativeCell(relativePosition = Position(0, 1), TetrisCell(_color = color, _size = cellSize)),
             RelativeCell(relativePosition = Position(1, 1), TetrisCell(_color = color, _size = cellSize)),
+            RelativeCell(relativePosition = Position(2, 1), TetrisCell(_color = color, _size = cellSize)),
+            RelativeCell(relativePosition = Position(1, 2), TetrisCell(_color = color, _size = cellSize)),
         ),
         listOf(
-            RelativeCell(relativePosition = Position(0, 0), TetrisCell(_color = color, _size = cellSize)),
-            RelativeCell(relativePosition = Position(0, 1), TetrisCell(_color = color, _size = cellSize)),
-            RelativeCell(relativePosition = Position(0, 2), TetrisCell(_color = color, _size = cellSize)),
+            RelativeCell(relativePosition = Position(1, 0), TetrisCell(_color = color, _size = cellSize)),
             RelativeCell(relativePosition = Position(1, 1), TetrisCell(_color = color, _size = cellSize)),
+            RelativeCell(relativePosition = Position(1, 2), TetrisCell(_color = color, _size = cellSize)),
+            RelativeCell(relativePosition = Position(2, 1), TetrisCell(_color = color, _size = cellSize)),
         ),
         listOf(
             RelativeCell(relativePosition = Position(0, 1), TetrisCell(_color = color, _size = cellSize)),
@@ -48,7 +48,7 @@ class TFigure(
             3
         }
         1 -> {
-            2
+            3
         }
         2 -> {
             3
@@ -63,7 +63,7 @@ class TFigure(
 
     override fun heightOfState(rotateState: Int): Int = when (rotateState) {
         0 -> {
-            2
+            3
         }
         1 -> {
             3
