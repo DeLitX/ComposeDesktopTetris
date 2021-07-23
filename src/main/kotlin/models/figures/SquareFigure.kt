@@ -21,11 +21,5 @@ class SquareFigure(
         )
     )
 ) {
-    override var currentWidth: Int = widthOfState(0)
-    override var currentHeight: Int = heightOfState(0)
     override val _rotateStatesCount: Int = 1
-
-    override fun widthOfState(rotateState: Int): Int = 2
-    override fun heightOfState(rotateState: Int): Int = 2
-
 }

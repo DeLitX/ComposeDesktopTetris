@@ -39,44 +39,5 @@ class InvertedLFigure(
         ),
     )
 ) {
-    override var currentWidth: Int = widthOfState(0)
-    override var currentHeight: Int = heightOfState(0)
     override val _rotateStatesCount: Int = 4
-    override fun heightOfState(rotateState: Int): Int = when (rotateState) {
-        0 -> {
-            3
-        }
-        1 -> {
-            2
-        }
-        2 -> {
-            3
-        }
-        3 -> {
-            3
-        }
-        else -> {
-            throw IllegalArgumentException()
-        }
-    }
-
-    override fun widthOfState(rotateState: Int): Int = when (rotateState) {
-        0 -> {
-            3
-        }
-        1 -> {
-            3
-        }
-        2 -> {
-            2
-        }
-        3 -> {
-            3
-        }
-        else -> {
-            throw IllegalArgumentException()
-        }
-    }
-
-
 }

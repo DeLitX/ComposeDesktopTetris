@@ -2,14 +2,19 @@ package models.figures
 
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.drawscope.DrawScope
-import drawBorder
 import models.cells.RelativeCell
 
-abstract class TetrisFigure(rotatePatterns:List<List<RelativeCell>>) : Figure() {
+abstract class TetrisFigure(rotatePatterns: List<List<RelativeCell>>) : Figure() {
     protected var _rotateState = 0
     protected abstract val _rotateStatesCount: Int
-    private val _rotatePatterns: List<List<RelativeCell>> =rotatePatterns
+    private val _rotatePatterns: List<List<RelativeCell>> = rotatePatterns
     override var pattern: List<RelativeCell> = _rotatePatterns[0]
+
+    private val heightsMap = mutableMapOf<Int, Int>()
+    private val widthsMap = mutableMapOf<Int, Int>()
+    override var currentHeight: Int = heightOfState(0)
+    override var currentWidth: Int = widthOfState(0)
+
     protected open fun getNextRotateState(): Int {
         return (_rotateState + 1) % _rotateStatesCount
     }
@@ -33,6 +38,29 @@ abstract class TetrisFigure(rotatePatterns:List<List<RelativeCell>>) : Figure() 
     }
 
 
-    abstract fun widthOfState(rotateState: Int): Int
-    abstract fun heightOfState(rotateState: Int): Int
+    fun widthOfState(rotateState: Int): Int {
+        var width = widthsMap[rotateState]
+        if (width == null) {
+            width = calculateWidth(_rotatePatterns[rotateState])
+            widthsMap[rotateState] = width
+        }
+        return width
+    }
+
+    fun heightOfState(rotateState: Int): Int {
+        var height = heightsMap[rotateState]
+        if (height == null) {
+            height = calculateHeight(_rotatePatterns[rotateState])
+            heightsMap[rotateState] = height
+        }
+        return height
+    }
+
+    private fun calculateHeight(cells: List<RelativeCell>): Int {
+        return cells.maxOf { it.position.y } + 1
+    }
+
+    private fun calculateWidth(cells: List<RelativeCell>): Int {
+        return cells.maxOf { it.position.x } + 1
+    }
 }
