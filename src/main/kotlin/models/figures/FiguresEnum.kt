@@ -1,5 +1,5 @@
 package models.figures
 
 enum class FiguresEnum {
-    L, T, Square, Stick
+    L,InvertedL, T, Square, Stick
 }
