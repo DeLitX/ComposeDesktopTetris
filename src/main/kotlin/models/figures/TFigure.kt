@@ -39,8 +39,8 @@ class TFigure(
         ),
     )
 ) {
-    override var currentWidth: Int = 3
-    override var currentHeight: Int = 2
+    override var currentWidth: Int = widthOfState(0)
+    override var currentHeight: Int = heightOfState(0)
     override val _rotateStatesCount: Int = 4
 
     override fun widthOfState(rotateState: Int): Int = when (rotateState) {

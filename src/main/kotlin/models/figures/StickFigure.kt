@@ -24,8 +24,8 @@ class StickFigure(
         ),
     )
 ) {
-    override var currentWidth: Int = 1
-    override var currentHeight: Int = 4
+    override var currentWidth: Int = widthOfState(0)
+    override var currentHeight: Int = heightOfState(0)
     override val _rotateStatesCount = 2
 
     override fun widthOfState(rotateState: Int): Int = when (rotateState) {
