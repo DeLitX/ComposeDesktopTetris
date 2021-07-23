@@ -109,6 +109,9 @@ class GameEngine(
             FiguresEnum.InvertedL -> {
                 InvertedLFigure(cellSize = cellSize, color = color)
             }
+            FiguresEnum.ZigZag -> {
+                ZigZagFigure(cellSize = cellSize, color = color)
+            }
         }
         val topLeftPoint = gameWidth / 2 - figure.currentWidth / 2
         val cells = figure.pattern
