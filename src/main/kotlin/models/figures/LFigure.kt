@@ -20,16 +20,16 @@ class LFigure(
             RelativeCell(relativePosition = Position(1, 2), TetrisCell(_color = color, _size = cellSize)),
         ),
         listOf(
-            RelativeCell(relativePosition = Position(0, 1), TetrisCell(_color = color, _size = cellSize)),
-            RelativeCell(relativePosition = Position(1, 1), TetrisCell(_color = color, _size = cellSize)),
+            RelativeCell(relativePosition = Position(0, 2), TetrisCell(_color = color, _size = cellSize)),
+            RelativeCell(relativePosition = Position(1, 2), TetrisCell(_color = color, _size = cellSize)),
+            RelativeCell(relativePosition = Position(2, 2), TetrisCell(_color = color, _size = cellSize)),
             RelativeCell(relativePosition = Position(2, 1), TetrisCell(_color = color, _size = cellSize)),
-            RelativeCell(relativePosition = Position(2, 0), TetrisCell(_color = color, _size = cellSize)),
         ),
         listOf(
-            RelativeCell(relativePosition = Position(0, 0), TetrisCell(_color = color, _size = cellSize)),
             RelativeCell(relativePosition = Position(1, 0), TetrisCell(_color = color, _size = cellSize)),
-            RelativeCell(relativePosition = Position(1, 1), TetrisCell(_color = color, _size = cellSize)),
-            RelativeCell(relativePosition = Position(1, 2), TetrisCell(_color = color, _size = cellSize)),
+            RelativeCell(relativePosition = Position(2, 0), TetrisCell(_color = color, _size = cellSize)),
+            RelativeCell(relativePosition = Position(2, 1), TetrisCell(_color = color, _size = cellSize)),
+            RelativeCell(relativePosition = Position(2, 2), TetrisCell(_color = color, _size = cellSize)),
         ),
         listOf(
             RelativeCell(relativePosition = Position(0, 1), TetrisCell(_color = color, _size = cellSize)),
@@ -47,7 +47,7 @@ class LFigure(
             3
         }
         1 -> {
-            2
+            3
         }
         2 -> {
             3
@@ -68,7 +68,7 @@ class LFigure(
             3
         }
         2 -> {
-            2
+            3
         }
         3 -> {
             3
