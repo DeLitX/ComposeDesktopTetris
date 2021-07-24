@@ -112,6 +112,9 @@ class GameEngine(
             FiguresEnum.ZigZag -> {
                 ZigZagFigure(cellSize = cellSize, color = color)
             }
+            FiguresEnum.InverseZigZag -> {
+                InverseZigZagFigure(cellSize = cellSize, color = color)
+            }
         }
         val topLeftPoint = gameWidth / 2 - figure.currentWidth / 2
         val cells = figure.pattern

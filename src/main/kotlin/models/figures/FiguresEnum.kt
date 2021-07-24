@@ -7,4 +7,5 @@ enum class FiguresEnum {
     Square,
     Stick,
     ZigZag,
+    InverseZigZag,
 }
