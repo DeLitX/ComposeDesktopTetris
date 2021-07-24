@@ -1,12 +1,15 @@
 package models.figures
 
+import Position
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import models.cells.RelativeCell
+import models.cells.TetrisCell
 
 abstract class TetrisFigure(rotatePatterns: List<List<RelativeCell>>) : Figure() {
     protected var _rotateState = 0
-    protected abstract val _rotateStatesCount: Int
+    protected val _rotateStatesCount: Int = rotatePatterns.size
     private val _rotatePatterns: List<List<RelativeCell>> = rotatePatterns
     override var pattern: List<RelativeCell> = _rotatePatterns[0]
 
@@ -14,6 +17,12 @@ abstract class TetrisFigure(rotatePatterns: List<List<RelativeCell>>) : Figure()
     private val widthsMap = mutableMapOf<Int, Int>()
     override var currentHeight: Int = heightOfState(0)
     override var currentWidth: Int = widthOfState(0)
+
+    constructor(positions: List<List<Position>>, cellsSize: Float, color: Color) : this(List(positions.size) { t ->
+        List(positions[t].size) { k ->
+            RelativeCell(positions[t][k], TetrisCell(cellsSize, color))
+        }
+    })
 
     protected open fun getNextRotateState(): Int {
         return (_rotateState + 1) % _rotateStatesCount
