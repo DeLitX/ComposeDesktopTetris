@@ -17,4 +17,8 @@ class SquareFigure(
     ),
     cellSize,
     color,
-)
+) {
+    override fun copy(color: Color): SquareFigure {
+        return SquareFigure(color, cellSize)
+    }
+}

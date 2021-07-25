@@ -35,4 +35,8 @@ class LFigure(
     ),
     cellSize,
     color,
-)
+) {
+    override fun copy(color: Color): LFigure {
+        return LFigure(color,cellSize)
+    }
+}

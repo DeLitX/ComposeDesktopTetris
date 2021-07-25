@@ -23,4 +23,8 @@ class InverseZigZagFigure(
     ),
     cellSize,
     color,
-)
+) {
+    override fun copy(color: Color): TetrisFigure {
+        return InverseZigZagFigure(color, cellSize)
+    }
+}

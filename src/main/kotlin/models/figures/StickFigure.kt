@@ -15,12 +15,16 @@ class StickFigure(
             Position(0, 3),
         ),
         listOf(
-             Position(0, 0),
-             Position(1, 0),
-             Position(2, 0),
-             Position(3, 0),
+            Position(0, 0),
+            Position(1, 0),
+            Position(2, 0),
+            Position(3, 0),
         ),
     ),
     cellSize,
     color,
-)
+) {
+    override fun copy(color: Color): StickFigure {
+        return StickFigure(color, cellSize)
+    }
+}

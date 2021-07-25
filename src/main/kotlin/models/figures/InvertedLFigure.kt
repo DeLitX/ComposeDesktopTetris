@@ -35,4 +35,8 @@ class InvertedLFigure(
     ),
     cellSize,
     color,
-)
+) {
+    override fun copy(color: Color): InvertedLFigure {
+        return InvertedLFigure(color, cellSize)
+    }
+}

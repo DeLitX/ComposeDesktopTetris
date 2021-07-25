@@ -35,4 +35,8 @@ class TFigure(
     ),
     cellSize,
     color,
-)
+) {
+    override fun copy(color: Color): TFigure {
+        return TFigure(color, cellSize)
+    }
+}

@@ -23,4 +23,8 @@ class ZigZagFigure(
     ),
     cellSize,
     color,
-)
+) {
+    override fun copy(color: Color): ZigZagFigure {
+        return ZigZagFigure(color, cellSize)
+    }
+}

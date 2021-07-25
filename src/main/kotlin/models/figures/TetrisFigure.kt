@@ -24,6 +24,8 @@ abstract class TetrisFigure(rotatePatterns: List<List<RelativeCell>>) : Figure()
         }
     })
 
+    abstract fun copy(color: Color): TetrisFigure
+
     protected open fun getNextRotateState(): Int {
         return (_rotateState + 1) % _rotateStatesCount
     }

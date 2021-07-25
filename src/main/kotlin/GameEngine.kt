@@ -12,7 +12,17 @@ class GameEngine(
     val gameWidth: Int,
     val gameHeight: Int,
     val cellSize: Float,
+    figuresToUse: List<TetrisFigure> = listOf(
+        LFigure(cellSize = cellSize),
+        SquareFigure(cellSize = cellSize),
+        StickFigure(cellSize = cellSize),
+        TFigure(cellSize = cellSize),
+        InvertedLFigure(cellSize = cellSize),
+        ZigZagFigure(cellSize = cellSize),
+        InverseZigZagFigure(cellSize = cellSize),
+    )
 ) {
+    private val _figuresToUse: List<TetrisFigure> = figuresToUse
     private lateinit var _currentFigure: RelativeFigure
     private val _cells: MutableList<MutableList<Cell>> = MutableList(gameWidth) { x ->
         MutableList(gameHeight) { y ->
@@ -89,33 +99,9 @@ class GameEngine(
     }
 
     private fun createNewFigure(): Boolean {
-        val enumValues = FiguresEnum.values()
-        val enumSize = enumValues.size
-        val rand = Random.nextInt(enumSize)
+        val rand = Random.nextInt(_figuresToUse.size)
         val color = randomColor()
-        val figure = when (enumValues[rand]) {
-            FiguresEnum.L -> {
-                LFigure(cellSize = cellSize, color = color)
-            }
-            FiguresEnum.Square -> {
-                SquareFigure(cellSize = cellSize, color = color)
-            }
-            FiguresEnum.Stick -> {
-                StickFigure(cellSize = cellSize, color = color)
-            }
-            FiguresEnum.T -> {
-                TFigure(cellSize = cellSize, color = color)
-            }
-            FiguresEnum.InvertedL -> {
-                InvertedLFigure(cellSize = cellSize, color = color)
-            }
-            FiguresEnum.ZigZag -> {
-                ZigZagFigure(cellSize = cellSize, color = color)
-            }
-            FiguresEnum.InverseZigZag -> {
-                InverseZigZagFigure(cellSize = cellSize, color = color)
-            }
-        }
+        val figure = _figuresToUse[rand].copy(color)
         val topLeftPoint = gameWidth / 2 - figure.currentWidth / 2
         val cells = figure.pattern
         cells.forEach { it.position.plus(Position(topLeftPoint, 0)) }
